@@ -1,0 +1,19 @@
+<div class="container" id="customWidgetContainer">
+    <div class="row" style="margin-bottom:20px;">
+        <div class="col-lg-1 col-lg-offset-11">
+            <a href="#" ng-click="addRow()"><span class="glyphicon glyphicon-plus"></span></a>
+            {{rows.length}}
+
+        </div>
+    </div>
+    <div class="row panelRow" data-ng-repeat="row in rows">
+        <div class="col-lg-11">
+            <div class="emptyPanel" data-drop="true" jqyoui-droppable data-jqyoui-options="{accept:'.widget', hoverClass:'hoverClass'}">
+
+            </div>
+        </div>
+        <div class="col-lg-1">
+            <a href="#" ng-click="removeRow(row.id)"><span class="glyphicon glyphicon-minus"></span></a>
+        </div>
+    </div>
+</div>

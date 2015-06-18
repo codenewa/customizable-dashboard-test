@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <style>
+        body {
+            margin: 20px;
+        }
+
+        .container {
+            border: solid 1px green;
+        }
+
+        #customWidgetList.container-fluid{
+            border: solid 1px blue;
+        }
+
+        .emptyPanel {
+            height:50px;
+            border: solid 1px #020202;
+            width: 100%;
+        }
+
+        .panelRow {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .hoverClass{
+            border: dashed 1px green;
+            background-color: beige;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-3">
+                <widget-list></widget-list>
+            </div>
+            <div class="col-lg-9 col-md-9">
+                <widget-container></widget-container>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="libs/jquery-ui-1.10.4.custom.min.js"></script>
+
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+
+    <script type="text/javascript" src="libs/angular-dragdrop.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</body>
+
+</html>
