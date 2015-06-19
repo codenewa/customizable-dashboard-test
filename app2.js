@@ -1,55 +1,27 @@
 var app = angular.module('app', ['gridster']);
 
-function getRandomColor() {
-    var letters = '0123456789ABCDEF'.split('');
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
+app.run(['gridsterConfig',function(gridsterConfig){
 
-function guid() {
-    function s4() {
-        return Math.floor((1 + Math.random()) * 0x10000)
-            .toString(16)
-            .substring(1);
-    }
-    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-        s4() + '-' + s4() + s4() + s4();
-}
+}]);
 
-function Row() {
-    var self = this;
-    self.availableUnits = 12;
-    self.takenUnits = 0;
-    //self.colorStyle = "{'background-color':'" + getRandomColor() + "'}";
-    self.id = guid();
-    return self;
-}
+app.controller('DashboardController', function($scope){
+
+});
 
 app.controller('WidgetController', function ($scope) {
-    $scope.text = 'a';
-
-    $scope.rows = [];
-
-    $scope.addRow = function () {
-        $scope.rows.push(new Row());
-    };
-
-    $scope.removeRow = function (id) {
-        var rowToRemove = $scope.rows.filter(function (r) {
-            return r.id === id;
-        })[0];
-
-        var index = $scope.rows.indexOf(rowToRemove);
-
-        if (index>-1){
-            $scope.rows.splice(index,1);
-        }
-
-    };
-
+    $scope.customItems = [
+          { size: { x: 2, y: 1 }, position: [0, 0] },
+          { size: { x: 2, y: 2 }, position: [0, 2] },
+          { size: { x: 1, y: 1 }, position: [0, 4] },
+          { size: { x: 1, y: 1 }, position: [0, 5] },
+          { size: { x: 2, y: 1 }, position: [1, 0] },
+          { size: { x: 1, y: 1 }, position: [1, 4] },
+          { size: { x: 1, y: 2 }, position: [1, 5] },
+          { size: { x: 1, y: 1 }, position: [2, 0] },
+          { size: { x: 2, y: 1 }, position: [2, 1] },
+          { size: { x: 1, y: 1 }, position: [2, 3] },
+          { size: { x: 1, y: 1 }, position: [2, 4] }
+        ];
 });
 
 app.directive('widgetContainer', function () {
