@@ -6,9 +6,17 @@
     </div>
     <div class="row" style="margin-bottom:20px;">
         <div class="col-lg-12 col-lg-12">
-            <div data-gridster>
+            <div data-gridster="gridsterOptions">
                 <ul>
-                    <li data-gridster-item data-row="item.position[0]" data-col="item.position[1]" data-sizex="item.size.x" data-sizey="item.size.y" ng-repeat="item in customItems" style='background-color: #CECECE;'></li>
+                    <li data-gridster-item
+                        data-row="item.position[0]"
+                        data-col="item.position[1]"
+                        data-sizex="item.size.x"
+                        data-sizey="item.size.y"
+                        ng-repeat="item in widgets"
+                        style="background-color:#CECECE;">
+                        <div directive-loader="{{item.targetDirective}}"></div>
+                    </li>
                 </ul>
             </div>
         </div>

@@ -1,9 +1,9 @@
 {
-  "name": "test",
-  "dependencies": {
-    "bootstrap": "~3.3.5",
-    "angular": "~1.4.1",
-    "angular-gridster": "~0.13.4",
-    "javascript-detect-element-resize": "~0.5.3"
-  }
+    "name": "test",
+    "dependencies": {
+        "bootstrap": "~3.3.5",
+        "angular": "~1.4.2-build.4073+sha.6903b5e",
+        "angular-gridster": "~0.13.4",
+        "javascript-detect-element-resize": "~0.5.3"
+    }
 }

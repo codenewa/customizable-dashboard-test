@@ -8,19 +8,23 @@ app.controller('DashboardController', function($scope){
 
 });
 
-app.controller('WidgetController', function ($scope) {
-    $scope.customItems = [
-          { size: { x: 2, y: 1 }, position: [0, 0] },
-          { size: { x: 2, y: 2 }, position: [0, 2] },
-          { size: { x: 1, y: 1 }, position: [0, 4] },
-          { size: { x: 1, y: 1 }, position: [0, 5] },
-          { size: { x: 2, y: 1 }, position: [1, 0] },
-          { size: { x: 1, y: 1 }, position: [1, 4] },
-          { size: { x: 1, y: 2 }, position: [1, 5] },
-          { size: { x: 1, y: 1 }, position: [2, 0] },
-          { size: { x: 2, y: 1 }, position: [2, 1] },
-          { size: { x: 1, y: 1 }, position: [2, 3] },
-          { size: { x: 1, y: 1 }, position: [2, 4] }
+app.controller('widgetController', function ($scope) {
+    $scope.gridsterOptions = {
+            margins: [40, 40],
+            columns: 12,
+            rowHeight: 113,
+            minRows: 3,
+            draggable: {
+                handle: 'h3'
+            }
+        };
+
+    $scope.widgets = [
+          {id:'1', name:'Widget1', size: { x: 4, y: 1 }, position: [0, 0], targetDirective: 'hello1' },
+          {id:'2', name:'Widget2', size: { x: 4, y: 1 }, position: [0, 4], targetDirective: 'hello2' },
+          {id:'3', name:'Widget3', size: { x: 4, y: 1 }, position: [0, 8], targetDirective: 'hello3' },
+          {id:'4', name:'Widget4', size: { x: 4, y: 1 }, position: [1, 0], targetDirective: 'hello4' },
+          {id:'5', name:'Widget5', size: { x: 4, y: 1 }, position: [1, 4], targetDirective: 'hello5' }
         ];
 });
 
@@ -32,9 +36,32 @@ app.directive('widgetContainer', function () {
         },
         link: function (scope, element, attrs) {},
         templateUrl: 'widgetContainer.html',
-        controller: 'WidgetController'
+        controller: 'widgetController'
     };
 });
+
+
+app.directive('directiveLoader',['$compile', function($compile){
+    return{
+        restrict: 'A',
+        scope:{
+            widget: '='
+        },
+        link: function(scope, element, attrs){
+            /*var build = function(html){
+              element.empty().append($compile(html)(scope));
+            };
+
+            scope.$watch('widget.template', function(newValue, oldValue){
+                if(newValue){
+                    build("<"+newValue+"/>");
+                }
+            });*/
+
+            element.empty().append($compile('<'+ attrs.directiveLoader+'/>')(scope));
+        }
+    };
+}]);
 
 
 app.directive('widgetList',function(){
