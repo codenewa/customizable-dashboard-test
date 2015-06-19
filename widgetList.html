@@ -3,69 +3,17 @@
         <div class="col-lg-1 col-lg-offset-11">
         </div>
     </div>
-    <div data-drag="true"
-         data-drop="true"
-         data-jqyoui-options="{revert: 'invalid'}"
-         ng-model="list1"
-         jqyoui-draggable="{animate:true, stack: true, containment: position}"
-         class='widget'         >
-        <div class="panel panel-default">
-            <div class='panel-heading'>hello</div>
-        </div>
+
+    <div data-gridster="gridsterOptions" data-drop="true">
+        <ul>
+            <li data-gridster-item data-row="item.position[0]" data-col="item.position[1]" data-sizex="item.size.x" data-sizey="item.size.y" ng-repeat="item in allWidgets" style="background-color:#CECECE;">
+                <div class="panel panel-default" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" qyoui-draggable="{animate:true, stack: true, containment: position}">
+                    <div class="panel-body">
+                        {{item.friendlyName}}
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
-    <div data-drag="true"
-         data-jqyoui-options="{revert: 'invalid'}"
-         ng-model="list1"
-         jqyoui-draggable="{animate:true}"
-         class='widget'>
-        <div class="row">
-            <div class="col-lg-12 col-md-12">
-                <hello1></hello1>
-            </div>
-        </div>
-    </div>
-    <div data-drag="true"
-         data-jqyoui-options="{revert: 'invalid'}"
-         ng-model="list1"
-         jqyoui-draggable="{animate:true}"
-         class='widget'>
-        <div class="row">
-            <div class="col-lg-12 col-md-12">
-                <hello2></hello2>
-            </div>
-        </div>
-    </div>
-    <div data-drag="true"
-         data-jqyoui-options="{revert: 'invalid'}"
-         ng-model="list1"
-         jqyoui-draggable="{animate:true}"
-         class='widget'>
-        <div class="row">
-            <div class="col-lg-12 col-md-12">
-                <hello3></hello3>
-            </div>
-        </div>
-    </div>
-    <div data-drag="true"
-         data-jqyoui-options="{revert: 'invalid'}"
-         ng-model="list1"
-         jqyoui-draggable="{animate:true}"
-         class='widget'>
-        <div class="row">
-            <div class="col-lg-12 col-md-12">
-                <hello4></hello4>
-            </div>
-        </div>
-    </div>
-    <div data-drag="true"
-         data-jqyoui-options="{revert: 'invalid'}"
-         ng-model="list1"
-         jqyoui-draggable="{animate:true}"
-         class='widget'>
-        <div class="row">
-            <div class="col-lg-12 col-md-12">
-                <hello5></hello5>
-            </div>
-        </div>
-    </div>
+
 </div>

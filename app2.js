@@ -5,25 +5,46 @@ app.run(['gridsterConfig',function(gridsterConfig){
 }]);
 
 app.controller('WidgetListController', function($scope){
+     $scope.allWidgets = [
+          {id:'1', name:'Widget1', size: { x: 4, y: 1 }, targetDirective: 'hello1', friendlyName: 'Hello 1 Directive' },
+          {id:'2', name:'Widget2', size: { x: 4, y: 1 }, targetDirective: 'hello2', friendlyName: 'Hello 2 Directive' },
+          {id:'3', name:'Widget3', size: { x: 4, y: 1 }, targetDirective: 'hello3', friendlyName: 'Hello 3 Directive' },
+          {id:'4', name:'Widget4', size: { x: 4, y: 1 }, targetDirective: 'hello4', friendlyName: 'Hello 4 Directive' },
+          {id:'5', name:'Widget5', size: { x: 4, y: 1 }, targetDirective: 'hello5', friendlyName: 'Hello 5 Directive' }
+        ];
+
+    $scope.gridsterOptions = {
+            margins: [20, 20],
+            columns: 1,
+            rowHeight: 113,
+        resizable: {
+                enabled: false
+        }
+        };
 });
 
-app.controller('DashboardController', function($scope){
-
+app.directive('widgetList',function(){
+ return {
+        restrict: 'AE',
+        link: function (scope, element, attrs) {},
+        templateUrl: 'widgetList.html',
+        controller: 'WidgetListController'
+    };
 });
 
 app.controller('widgetController', function ($scope) {
     $scope.gridsterOptions = {
             margins: [20, 20],
             columns: 12,
-            rowHeight: 113
+            rowHeight: 113,
+        resizable: {
+                enabled: false
+        }
         };
 
     $scope.widgets = [
           {id:'1', name:'Widget1', size: { x: 4, y: 1 }, position: [0, 0], targetDirective: 'hello1' },
-          {id:'2', name:'Widget2', size: { x: 4, y: 1 }, position: [0, 4], targetDirective: 'hello2' },
-          {id:'3', name:'Widget3', size: { x: 4, y: 1 }, position: [0, 8], targetDirective: 'hello3' },
-          {id:'4', name:'Widget4', size: { x: 4, y: 1 }, position: [1, 0], targetDirective: 'hello4' },
-          {id:'5', name:'Widget5', size: { x: 4, y: 1 }, position: [1, 4], targetDirective: 'hello5' }
+          {id:'2', name:'Widget2', size: { x: 4, y: 1 }, position: [0, 4], targetDirective: 'hello2' }
         ];
 });
 
@@ -53,13 +74,7 @@ app.directive('directiveLoader',['$compile', function($compile){
 }]);
 
 
-app.directive('widgetList',function(){
- return {
-        restrict: 'AE',
-        link: function (scope, element, attrs) {},
-        templateUrl: 'widgetList.html'
-    };
-});
+
 
 app.directive('hello1',function(){
  return {
