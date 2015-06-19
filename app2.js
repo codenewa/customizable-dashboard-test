@@ -1,8 +1,11 @@
-var app = angular.module('app', ['gridster']);
+var app = angular.module('app', ['gridster', 'ngDragDrop']);
 
 app.run(['gridsterConfig',function(gridsterConfig){
 
 }]);
+
+app.controller('WidgetListController', function($scope){
+});
 
 app.controller('DashboardController', function($scope){
 
@@ -10,13 +13,9 @@ app.controller('DashboardController', function($scope){
 
 app.controller('widgetController', function ($scope) {
     $scope.gridsterOptions = {
-            margins: [40, 40],
+            margins: [20, 20],
             columns: 12,
-            rowHeight: 113,
-            minRows: 3,
-            draggable: {
-                handle: 'h3'
-            }
+            rowHeight: 113
         };
 
     $scope.widgets = [
@@ -48,16 +47,6 @@ app.directive('directiveLoader',['$compile', function($compile){
             widget: '='
         },
         link: function(scope, element, attrs){
-            /*var build = function(html){
-              element.empty().append($compile(html)(scope));
-            };
-
-            scope.$watch('widget.template', function(newValue, oldValue){
-                if(newValue){
-                    build("<"+newValue+"/>");
-                }
-            });*/
-
             element.empty().append($compile('<'+ attrs.directiveLoader+'/>')(scope));
         }
     };
