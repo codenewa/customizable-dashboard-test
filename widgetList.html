@@ -4,16 +4,11 @@
         </div>
     </div>
 
-    <div data-gridster="gridsterOptions" data-drop="true">
-        <ul>
-            <li data-gridster-item data-row="item.position[0]" data-col="item.position[1]" data-sizex="item.size.x" data-sizey="item.size.y" ng-repeat="item in allWidgets" style="background-color:#CECECE;">
-                <div class="panel panel-default" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" qyoui-draggable="{animate:true, stack: true, containment: position}">
-                    <div class="panel-body">
-                        {{item.friendlyName}}
-                    </div>
-                </div>
-            </li>
-        </ul>
+    <div data-ng-repeat="item in allWidgets" >
+        <div class="panel panel-default" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" jqyoui-draggable="{index:{{$index}}, animate:true, onStart: 'onPicked(item)'}"  data-id="{{item.id}}">
+            <div class="panel-body">
+                {{item.friendlyName}}
+            </div>
+        </div>
     </div>
-
 </div>
