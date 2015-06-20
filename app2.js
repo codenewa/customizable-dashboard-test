@@ -17,7 +17,8 @@ app.controller('WidgetListController', function($scope){
         ];
 
     $scope.onPicked= function(event, tgt, widget){
-        console.log('picked up : '+ widget.id);
+        if(widget.isOnScreen)
+            event.preventDefault();
     }
 });
 
@@ -37,7 +38,7 @@ app.controller('widgetController', function ($scope) {
             columns: 12,
             rowHeight: 113,
         resizable: {
-                enabled: false
+                enabled: true
         }
         };
 
@@ -46,11 +47,11 @@ app.controller('widgetController', function ($scope) {
           {id:'2', name:'Widget2', size: { x: 4, y: 1 }, position: [0, 4], targetDirective: 'hello2', friendlyName: 'Hello 2 Directive', isOnScreen: true, isBeingPlaced: false }
         ];
       $scope.allWidgets = [
-          {id:'1', name:'Widget1', size: { x: 1, y: 1 }, targetDirective: 'hello1', friendlyName: 'Hello 1 Directive', isOnScreen: true, isBeingPlaced: false },
-          {id:'2', name:'Widget2', size: { x: 1, y: 1 }, targetDirective: 'hello2', friendlyName: 'Hello 2 Directive', isOnScreen: true, isBeingPlaced: false },
-          {id:'3', name:'Widget3', size: { x: 1, y: 1 }, targetDirective: 'hello3', friendlyName: 'Hello 3 Directive', isOnScreen: false, isBeingPlaced: false },
-          {id:'4', name:'Widget4', size: { x: 1, y: 1 }, targetDirective: 'hello4', friendlyName: 'Hello 4 Directive', isOnScreen: false, isBeingPlaced: false },
-          {id:'5', name:'Widget5', size: { x: 1, y: 1 }, targetDirective: 'hello5', friendlyName: 'Hello 5 Directive', isOnScreen: false, isBeingPlaced: false }
+          {id:'1', name:'Widget1', size: { x: 4, y: 1 }, targetDirective: 'hello1', friendlyName: 'Hello 1 Directive', isOnScreen: true, isBeingPlaced: false },
+          {id:'2', name:'Widget2', size: { x: 4, y: 1 }, targetDirective: 'hello2', friendlyName: 'Hello 2 Directive', isOnScreen: true, isBeingPlaced: false },
+          {id:'3', name:'Widget3', size: { x: 4, y: 1 }, targetDirective: 'hello3', friendlyName: 'Hello 3 Directive', isOnScreen: false, isBeingPlaced: false },
+          {id:'4', name:'Widget4', size: { x: 6, y: 4 }, targetDirective: 'hello4', friendlyName: 'Hello 4 Directive', isOnScreen: false, isBeingPlaced: false },
+          {id:'5', name:'Widget5', size: { x: 3, y: 2 }, targetDirective: 'hello5', friendlyName: 'Hello 5 Directive', isOnScreen: false, isBeingPlaced: false }
         ];
 
 
@@ -60,8 +61,12 @@ app.controller('widgetController', function ($scope) {
 
         var droppedWidget = $scope.allWidgets.filter(function(w){
             return w.id === widgetId;
-        });
+        })[0];
 
+        droppedWidget.isOnScreen= true;
+        droppedWidget.isBeingPlaced=false;
+        $scope.widgetsOnDashboard.push(droppedWidget);
+        console.log($scope.widgetsOnDashboard);
     }
 
     $scope.onOver = function(event, tgt){
