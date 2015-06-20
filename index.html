@@ -5,33 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link type="text/css" rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="bower_components/angular-gridster/dist/angular-gridster.min.css">
-
     <style>
-        body {
-            margin: 20px;
-        }
+    .onDashboard{
+        background-color: #CECECE;
+    }
 
-        .container {
-            border: solid 1px green;
-        }
-
-        #customWidgetList.container-fluid{
-            border: solid 1px blue;
-        }
-
-        .emptyPanel {
-            height:50px;
-            border: solid 1px #020202;
-            width: 100%;
-        }
-
-        .panelRow {
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-        .hoverClass{
-            border: dashed 1px green;
-            background-color: beige;
+        .isBeingDragged{
+            background-color: #343434;
         }
     </style>
 </head>
@@ -39,19 +19,13 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-3 col-md-3">
+            <div class="col-lg-2 col-md-2">
                 <widget-list></widget-list>
             </div>
-            <div class="col-lg-9 col-md-9">
+            <div class="col-lg-10 col-md-10">
                 <widget-container></widget-container>
             </div>
         </div>
-        <div class="row">
-        <div class="col-lg-12" data-drop="true" jqyoui-droppable
-             style="height:40px;"
-             data-jqyoui-options="{accept:'.widget', hoverClass:'hoverClass'}">
-
-            </div></div>
     </div>
 
 
@@ -62,10 +36,10 @@
     <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="bower_components/javascript-detect-element-resize/jquery.resize.js"></script>
+    <script type="text/javascript" src="libs/angular-dragdrop.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-gridster/dist/angular-gridster.min.js"></script>
 
-    <!-- <script type="text/javascript" src="libs/angular-dragdrop.js"></script> -->
-    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="app2.js"></script>
 </body>
 
 </html>
