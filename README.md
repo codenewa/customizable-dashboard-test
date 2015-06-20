@@ -1,3 +1,3 @@
-# ngdragdroptest
+# Customizable dashboard test bench
 
-A customizable grid layout for angular where widgets can be dragged and dropped.
+A Customizable dashboard test bench for angular where widgets can be dragged and dropped.
