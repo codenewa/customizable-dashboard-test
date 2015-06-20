@@ -1,5 +1,7 @@
 var app = angular.module('app', ['gridster', 'ngDragDrop']);
 
+
+
 app.run(['gridsterConfig',function(gridsterConfig){
 
 }]);
@@ -32,13 +34,23 @@ app.directive('widgetList',function(){
 });
 
 app.controller('widgetController', function ($scope) {
+
+    $scope.toggleGridEditor = function(){
+        $scope.gridsterOptions.resizable.enabled = !$scope.gridsterOptions.resizable.enabled;
+        $scope.gridsterOptions.draggable.enabled = !$scope.gridsterOptions.draggable.enabled;
+
+    };
+
     $scope.gridsterOptions = {
         namespace: 'grid',
             margins: [20, 20],
             columns: 12,
             rowHeight: 113,
         resizable: {
-                enabled: true
+                enabled: false
+        },
+        draggable:{
+            enabled: false
         }
         };
 
